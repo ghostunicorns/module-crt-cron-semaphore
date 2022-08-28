@@ -3,9 +3,7 @@
     "description": "GhostUnicorns Crt Cron Semaphore module",
     "type": "magento2-module",
     "require": {
-        "magento/framework": "*",
-        "ghostunicorns/module-cron-semaphore": "~1.0.0",
-        "ghostunicorns/module-crt-base": "~1.0.0"
+        "magento/framework": "*"
     },
     "authors": [
         {
