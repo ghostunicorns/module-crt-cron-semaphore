@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace GhostUnicorns\CrtCronSemaphore\Transferor;
 
 use Exception;
-use GhostUnicorns\CronSemaphore\Api\CronSempahoreManagerInterface;
+use GhostUnicorns\CrtCronSemaphore\Model\CronSempahoreManager;
 use GhostUnicorns\CrtBase\Api\TransferorInterface;
 use GhostUnicorns\CrtBase\Exception\CrtException;
 use Monolog\Logger;
@@ -22,7 +22,7 @@ class CronSemaphoreSuspendTransferor implements TransferorInterface
     private $logger;
 
     /**
-     * @var CronSempahoreManagerInterface
+     * @var CronSempahoreManager
      */
     private $cronSempahoreManager;
 
@@ -33,13 +33,13 @@ class CronSemaphoreSuspendTransferor implements TransferorInterface
 
     /**
      * @param Logger $logger
-     * @param CronSempahoreManagerInterface $cronSempahoreManager
+     * @param CronSempahoreManager $cronSempahoreManager
      * @param int $forSeconds
      */
     public function __construct(
         Logger $logger,
-        CronSempahoreManagerInterface $cronSempahoreManager,
-        int $forSeconds = CronSempahoreManagerInterface::TIMEOUT_EXPIRE
+        CronSempahoreManager $cronSempahoreManager,
+        int $forSeconds = CronSempahoreManager::TIMEOUT_EXPIRE
     ) {
         $this->logger = $logger;
         $this->cronSempahoreManager = $cronSempahoreManager;
