@@ -49,7 +49,7 @@ class CronSempahoreManager
      * @inheritDoc
      * @throws Exception
      */
-    public function suspend(int $forSeconds = CronSempahoreManagerInterface::TIMEOUT_EXPIRE)
+    public function suspend(int $forSeconds = self::TIMEOUT_EXPIRE)
     {
         $expire = new DateTime();
         $expire->add(new DateInterval('PT' . $forSeconds . 'S'));
@@ -66,11 +66,11 @@ class CronSempahoreManager
         $flag = $this->flagFactory->create(
             [
                 'data' => [
-                    'flag_code' => CronSempahoreManagerInterface::CONFIG_KEY
+                    'flag_code' => self::CONFIG_KEY
                 ]
             ]
         );
-        $this->flagResource->load($flag, CronSempahoreManagerInterface::CONFIG_KEY, 'flag_code');
+        $this->flagResource->load($flag, self::CONFIG_KEY, 'flag_code');
         return $flag;
     }
 
